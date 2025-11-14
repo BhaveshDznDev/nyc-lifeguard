@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { AIInsightsPanel } from "@/components/AIInsightsPanel";
 import { MetricsGrid } from "@/components/MetricsGrid";
-import { BoroughMap } from "@/components/BoroughMap";
+import { TrafficMap } from "@/components/TrafficMap";
 import { BoroughDetails } from "@/components/BoroughDetails";
 import { EmergencyTracking } from "@/components/EmergencyTracking";
 import { MobileHealthCamps } from "@/components/MobileHealthCamps";
@@ -71,10 +71,10 @@ const Index = () => {
 
         {/* Borough Map & Details */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">NYC Borough Health Risk Overview</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">NYC Traffic & Health Risk Overview</h2>
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-8">
-              <BoroughMap 
+              <TrafficMap
                 onBoroughSelect={setSelectedBorough}
                 selectedBorough={selectedBorough}
               />
