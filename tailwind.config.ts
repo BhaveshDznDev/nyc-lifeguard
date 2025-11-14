@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // NYC Health & Traffic Status Colors
+        critical: "hsl(var(--critical))",
+        "high-risk": "hsl(var(--high-risk))",
+        moderate: "hsl(var(--moderate))",
+        safe: "hsl(var(--safe))",
+        info: "hsl(var(--info))",
+        health: "hsl(var(--health))",
       },
       borderRadius: {
         lg: "var(--radius)",
