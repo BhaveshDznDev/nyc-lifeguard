@@ -3,6 +3,8 @@ import { Navigation } from "@/components/Navigation";
 import { MetricsGrid } from "@/components/MetricsGrid";
 import { BoroughMap } from "@/components/BoroughMap";
 import { BoroughDetails } from "@/components/BoroughDetails";
+import { EmergencyTracking } from "@/components/EmergencyTracking";
+import { PredictiveAlerts } from "@/components/PredictiveAlerts";
 
 const Index = () => {
   const [selectedBorough, setSelectedBorough] = useState("Bronx");
@@ -30,6 +32,19 @@ const Index = () => {
             {/* Details Panel - 4 columns */}
             <div className="xl:col-span-4">
               <BoroughDetails borough={selectedBorough} />
+            </div>
+          </div>
+
+          {/* Emergency Tracking Section */}
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+            {/* Emergency Map - 8 columns */}
+            <div className="xl:col-span-8">
+              <EmergencyTracking />
+            </div>
+
+            {/* Predictive Alerts - 4 columns */}
+            <div className="xl:col-span-4">
+              <PredictiveAlerts />
             </div>
           </div>
         </div>
