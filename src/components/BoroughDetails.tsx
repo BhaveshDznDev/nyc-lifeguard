@@ -132,48 +132,46 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Borough Details Card */}
-      <div className={`bg-white rounded-2xl p-6 border-2 ${getBorderColor()} shadow-sm`}>
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-slate-900">{borough}</h3>
-          <Badge className={`${getStatusColor()} text-white border-0 rounded-full px-3 py-1 text-xs font-semibold`}>
-            {data.status}
-          </Badge>
-        </div>
+    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm h-full">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-2xl font-bold text-gray-900">{borough}</h3>
+        <Badge className={`${getStatusColor()} text-white border-0 rounded-full px-3 py-1 text-xs font-semibold`}>
+          {data.status}
+        </Badge>
+      </div>
 
         {/* Health Risk Score */}
         <div className="mb-6">
-          <div className="flex items-baseline gap-2 mb-2">
+          <div className="flex items-baseline gap-2 mb-3">
             <span className={`text-5xl font-bold ${getRiskColor()} tabular-nums`}>{data.riskScore}</span>
-            <span className="text-lg text-slate-600">/100</span>
-            <span className="text-sm text-slate-600">Health Risk Score</span>
+            <span className="text-xl text-gray-600">/100</span>
           </div>
-          <Progress 
-            value={data.riskScore} 
-            className="h-4 bg-slate-200"
-            indicatorClassName={getProgressColor()}
-          />
+          <div className="bg-gray-200 h-3 rounded-full overflow-hidden">
+            <div 
+              className={`${getProgressColor()} h-full rounded-full transition-all`}
+              style={{ width: `${data.riskScore}%` }}
+            />
+          </div>
         </div>
 
         {/* Quick Stats Grid */}
         <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <div className="label-default mb-1">AQI</div>
-            <div className="text-3xl font-bold text-orange-600 tabular-nums">{data.aqi}</div>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">AQI</div>
+            <div className="text-2xl font-bold text-high-risk tabular-nums">{data.aqi}</div>
           </div>
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <div className="label-default mb-1">ER Visits</div>
-            <div className="text-3xl font-bold text-purple-600 tabular-nums">{data.erVisits}</div>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">ER Visits</div>
+            <div className="text-2xl font-bold text-health tabular-nums">{data.erVisits}</div>
           </div>
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <div className="label-default mb-1">Response Time</div>
-            <div className="text-3xl font-bold text-red-600 tabular-nums">{data.responseTime}</div>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Response Time</div>
+            <div className="text-2xl font-bold text-critical tabular-nums">{data.responseTime}</div>
           </div>
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <div className="label-default mb-1">Avg Speed</div>
-            <div className="text-3xl font-bold text-amber-600 tabular-nums">{data.avgSpeed}</div>
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Avg Speed</div>
+            <div className="text-2xl font-bold text-moderate tabular-nums">{data.avgSpeed}</div>
           </div>
         </div>
 
