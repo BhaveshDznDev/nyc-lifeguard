@@ -8,68 +8,68 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Pastel Dashboard Theme - Professional & Structured */
-    --background: 220 13% 98%;          /* #F9FAFB light gray background */
-    --foreground: 222 47% 11%;          /* #111827 almost black */
+    /* Coffee Shop Aesthetic - Warm & Inviting */
+    --background: 30 40% 96%;           /* #F5F1ED warm cream background */
+    --foreground: 25 25% 20%;           /* #3D3226 deep coffee brown text */
 
-    --card: 0 0% 100%;                  /* #FFFFFF pure white cards */
-    --card-foreground: 222 47% 11%;
+    --card: 30 50% 98%;                 /* #FBF9F7 warm white cards */
+    --card-foreground: 25 25% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 30 50% 98%;
+    --popover-foreground: 25 25% 20%;
 
-    --primary: 217 91% 60%;             /* #3B82F6 info blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 25 45% 35%;              /* #6F4E37 rich coffee brown */
+    --primary-foreground: 30 40% 96%;
 
-    --secondary: 220 14% 96%;           /* #F3F4F6 hover state */
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 30 35% 92%;            /* #F0EBE3 warm beige */
+    --secondary-foreground: 25 25% 20%;
 
-    --muted: 215 16% 47%;               /* #6B7280 gray */
-    --muted-foreground: 215 20% 65%;    /* #9CA3AF light gray */
+    --muted: 25 15% 55%;                /* #8B7E74 warm gray */
+    --muted-foreground: 30 20% 70%;     /* #B5A99C light warm gray */
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 65% 50%;               /* #D4A574 warm amber */
+    --accent-foreground: 30 40% 96%;
 
-    --destructive: 0 84% 60%;           /* #EF4444 red */
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;           /* #DC2626 warm red */
+    --destructive-foreground: 30 40% 96%;
 
-    --border: 214 32% 91%;              /* #E5E7EB light border */
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --border: 30 30% 88%;               /* #E8DFD6 warm border */
+    --input: 30 30% 88%;
+    --ring: 25 45% 35%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
 
-    /* Pastel Status Colors */
-    --critical: 0 84% 60%;              /* #EF4444 red */
-    --critical-bg: 0 86% 95%;           /* #FEE2E2 light red */
-    --high-risk: 25 95% 53%;            /* #F97316 orange */
-    --high-risk-bg: 25 95% 85%;         /* #FED7AA light orange */
-    --moderate: 38 92% 50%;             /* #F59E0B yellow */
-    --moderate-bg: 48 96% 89%;          /* #FEF3C7 light yellow */
-    --safe: 142 71% 45%;                /* #10B981 green */
-    --safe-bg: 142 76% 91%;             /* #D1FAE5 light green */
-    --info: 217 91% 60%;                /* #3B82F6 blue */
-    --info-bg: 214 95% 93%;             /* #DBEAFE light blue */
-    --health: 262 83% 58%;              /* #A855F7 purple */
-    --health-bg: 270 100% 93%;          /* #E9D5FF light purple */
+    /* Coffee-Inspired Status Colors */
+    --critical: 0 72% 50%;              /* #DC2626 warm red */
+    --critical-bg: 0 70% 95%;           /* #FCEAEA light red */
+    --high-risk: 25 75% 50%;            /* #E07B39 burnt orange */
+    --high-risk-bg: 25 70% 92%;         /* #FAE8D9 light orange */
+    --moderate: 40 85% 55%;             /* #F4B860 golden yellow */
+    --moderate-bg: 40 80% 93%;          /* #FEF5E5 light yellow */
+    --safe: 142 71% 45%;                /* #10B981 emerald green */
+    --safe-bg: 142 60% 92%;             /* #D7F5E9 light green */
+    --info: 200 70% 45%;                /* #2B8FA6 teal blue */
+    --info-bg: 200 60% 93%;             /* #E0F2F7 light blue */
+    --health: 280 60% 50%;              /* #9333EA deep purple */
+    --health-bg: 280 55% 94%;           /* #F3E8FF light purple */
 
-    /* Pastel Accent Colors for Charts */
-    --mint: 158 64% 72%;                /* #6EE7B7 */
-    --sky: 199 89% 73%;                 /* #7DD3FC */
-    --peach: 0 93% 80%;                 /* #FCA5A5 */
-    --lavender: 250 86% 83%;            /* #C4B5FD */
-    --coral: 25 95% 73%;                /* #FDBA74 */
-    --teal: 173 80% 70%;                /* #5EEAD4 */
+    /* Warm Accent Colors for Charts */
+    --espresso: 25 60% 25%;             /* #4D3319 dark espresso */
+    --latte: 35 50% 75%;                /* #D9BF9F latte cream */
+    --caramel: 35 65% 55%;              /* #D4A574 caramel */
+    --mocha: 20 40% 40%;                /* #8B6F47 mocha */
+    --cinnamon: 15 60% 55%;             /* #D9825C cinnamon */
+    --honey: 45 90% 60%;                /* #F4D06F honey gold */
 
-    /* Sidebar */
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 217 91% 60%;
+    /* Sidebar - Coffee Theme */
+    --sidebar-background: 30 50% 98%;
+    --sidebar-foreground: 25 25% 20%;
+    --sidebar-primary: 25 45% 35%;
+    --sidebar-primary-foreground: 30 40% 96%;
+    --sidebar-accent: 30 35% 92%;
+    --sidebar-accent-foreground: 25 25% 20%;
+    --sidebar-border: 30 30% 88%;
+    --sidebar-ring: 25 45% 35%;
   }
 }
 
@@ -83,21 +83,21 @@ All colors MUST be HSL.
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  /* Typography System - Clean & Professional */
+  /* Typography System - Warm & Inviting */
   h1 {
-    @apply text-3xl font-bold text-slate-900;
+    @apply text-3xl font-bold text-foreground;
   }
   
   h2 {
-    @apply text-2xl font-bold text-slate-900;
+    @apply text-2xl font-bold text-foreground;
   }
   
   h3 {
-    @apply text-xl font-semibold text-slate-900;
+    @apply text-xl font-semibold text-foreground;
   }
   
   h4 {
-    @apply text-lg font-semibold text-slate-900;
+    @apply text-lg font-semibold text-foreground;
   }
 
   /* Large metrics display */

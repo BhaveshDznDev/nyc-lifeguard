@@ -8,7 +8,7 @@ export const MetricsGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
       {/* Card 1: Emergency Response Time */}
-      <div className="bg-white rounded-2xl p-6 border-l-4 border-critical shadow-sm hover:shadow-md transition-all">
+      <div className="bg-card rounded-2xl p-6 border-l-4 border-critical shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Ambulance className="h-5 w-5 text-gray-400" />
@@ -36,7 +36,7 @@ export const MetricsGrid = () => {
       </div>
 
       {/* Card 2: Air Quality Index */}
-      <div className="bg-orange-50/30 rounded-2xl p-6 border-l-4 border-high-risk shadow-sm hover:shadow-md transition-all">
+      <div className="bg-high-risk-bg/30 rounded-2xl p-6 border-l-4 border-high-risk shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Cloud className="h-5 w-5 text-gray-400" />
@@ -64,7 +64,7 @@ export const MetricsGrid = () => {
       </div>
 
       {/* Card 3: Hospital ER Visits */}
-      <div className="bg-purple-50/30 rounded-2xl p-6 border-l-4 border-health shadow-sm hover:shadow-md transition-all">
+      <div className="bg-health-bg/30 rounded-2xl p-6 border-l-4 border-health shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '200ms' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Building2 className="h-5 w-5 text-gray-400" />
@@ -92,7 +92,7 @@ export const MetricsGrid = () => {
       </div>
 
       {/* Card 4: Lives Saved Today */}
-      <div className="bg-green-50/30 rounded-2xl p-6 border-l-4 border-safe shadow-sm hover:shadow-md transition-all">
+      <div className="bg-safe-bg/30 rounded-2xl p-6 border-l-4 border-safe shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '300ms' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Heart className="h-5 w-5 text-safe fill-safe" />
