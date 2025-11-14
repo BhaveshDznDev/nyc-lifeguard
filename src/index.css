@@ -8,54 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* NYC Dashboard Dark Theme - Slate Base */
-    --background: 222 47% 5%;           /* slate-950 */
-    --foreground: 0 0% 100%;            /* white */
+    /* NYC Dashboard Light Theme - Clean & Professional */
+    --background: 0 0% 100%;            /* #FFFFFF pure white */
+    --foreground: 222 47% 11%;          /* #0F172A dark slate */
 
-    --card: 222 47% 11%;                /* slate-900 */
-    --card-foreground: 0 0% 100%;
+    --card: 210 40% 98%;                /* #F8FAFC light gray-blue */
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 217 91% 60%;             /* blue - NYC brand */
+    --primary: 199 89% 48%;             /* #0284C7 info blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 27%;           /* slate-800 */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;           /* #F1F5F9 hover state */
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 215 25% 27%;
-    --muted-foreground: 0 0% 63%;       /* gray-400 */
+    --muted: 215 16% 47%;               /* #64748B medium gray */
+    --muted-foreground: 215 20% 65%;    /* #94A3B8 light gray */
 
-    --accent: 217 91% 60%;
+    --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;           /* red - critical */
+    --destructive: 0 72% 51%;           /* #DC2626 critical red */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 27%;              /* slate-800 */
-    --input: 215 25% 27%;
-    --ring: 217 91% 60%;
+    --border: 214 32% 91%;              /* #E2E8F0 light gray */
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    /* Status Colors for Health & Traffic */
-    --critical: 0 84% 60%;              /* red #EF4444 */
-    --high-risk: 25 95% 53%;            /* orange #F97316 */
-    --moderate: 38 92% 50%;             /* yellow #F59E0B */
-    --safe: 160 84% 39%;                /* green #10B981 */
-    --info: 217 91% 60%;                /* blue #3B82F6 */
-    --health: 258 90% 66%;              /* purple #8B5CF6 */
+    /* Status Colors - Vibrant but Professional */
+    --critical: 0 72% 51%;              /* #DC2626 darker red */
+    --high-risk: 17 88% 40%;            /* #EA580C warning orange */
+    --moderate: 25 95% 53%;             /* #D97706 caution yellow */
+    --safe: 160 84% 39%;                /* #059669 success green */
+    --info: 199 89% 48%;                /* #0284C7 info blue */
+    --health: 258 90% 66%;              /* #7C3AED health purple */
 
     /* Sidebar */
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 199 89% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 25% 27%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 215 25% 27%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 199 89% 48%;
   }
 }
 
@@ -69,27 +69,42 @@ All colors MUST be HSL.
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  /* Typography - Inter Font */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
+  /* Typography System - Clean & Professional */
+  h1 {
+    @apply text-3xl font-bold text-slate-900;
+  }
+  
+  h2 {
+    @apply text-2xl font-bold text-slate-900;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold text-slate-900;
+  }
+  
+  h4 {
+    @apply text-lg font-semibold text-slate-900;
   }
 
   /* Large metrics display */
+  .metric-hero {
+    @apply text-6xl font-bold tabular-nums;
+  }
+  
   .metric-large {
     @apply text-5xl font-bold tabular-nums;
   }
-
-  /* Pulsing animation for critical alerts */
-  @keyframes pulse-critical {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
+  
+  .metric-medium {
+    @apply text-3xl font-bold tabular-nums;
+  }
+  
+  .metric-small {
+    @apply text-2xl font-bold tabular-nums;
   }
 
-  .animate-pulse-critical {
-    animation: pulse-critical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  /* Labels */
+  .label-default {
+    @apply uppercase text-xs tracking-wide text-slate-500 font-medium;
   }
 }

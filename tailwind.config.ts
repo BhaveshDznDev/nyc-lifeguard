@@ -64,6 +64,13 @@ export default {
         safe: "hsl(var(--safe))",
         info: "hsl(var(--info))",
         health: "hsl(var(--health))",
+        // Light backgrounds for status
+        "critical-bg": "#FEF2F2",
+        "high-risk-bg": "#FFF7ED",
+        "moderate-bg": "#FFFBEB",
+        "safe-bg": "#F0FDF4",
+        "info-bg": "#F0F9FF",
+        "health-bg": "#FAF5FF",
       },
       borderRadius: {
         lg: "var(--radius)",

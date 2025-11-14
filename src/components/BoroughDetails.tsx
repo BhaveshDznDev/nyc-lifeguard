@@ -1,27 +1,25 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { AlertTriangle, TrendingUp } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 interface BoroughDetailsProps {
   borough: string;
 }
 
 export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
-  // Data for different boroughs
   const boroughData: Record<string, any> = {
     "Bronx": {
       riskScore: 92,
       status: "CRITICAL",
-      statusColor: "bg-critical",
       aqi: 95,
       erVisits: 194,
       responseTime: "11.5m",
       avgSpeed: "8.2mph",
       alerts: [
-        { severity: "critical", text: "High PM2.5 near PS 123 (3,200 students affected)" },
-        { severity: "critical", text: "3 ambulances delayed on Cross Bronx Expressway" },
-        { severity: "high", text: "Asthma spike predicted in 4 hours (85% confidence)" }
+        { text: "High PM2.5 near PS 123 (3,200 students affected)" },
+        { text: "3 ambulances delayed on Cross Bronx Expressway" },
+        { text: "Asthma spike predicted in 4 hours (85% confidence)" }
       ],
       population: 54000,
       breakdown: [
@@ -34,14 +32,13 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
     "Manhattan": {
       riskScore: 48,
       status: "MODERATE",
-      statusColor: "bg-info",
       aqi: 52,
       erVisits: 127,
       responseTime: "7.8m",
       avgSpeed: "12.4mph",
       alerts: [
-        { severity: "moderate", text: "Elevated traffic on FDR Drive during rush hour" },
-        { severity: "moderate", text: "Minor AQI increase in Midtown area" }
+        { text: "Elevated traffic on FDR Drive during rush hour" },
+        { text: "Minor AQI increase in Midtown area" }
       ],
       population: 38000,
       breakdown: [
@@ -54,14 +51,13 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
     "Brooklyn": {
       riskScore: 62,
       status: "ELEVATED",
-      statusColor: "bg-moderate",
       aqi: 68,
       erVisits: 156,
       responseTime: "8.9m",
       avgSpeed: "10.7mph",
       alerts: [
-        { severity: "high", text: "Traffic congestion on BQE affecting response times" },
-        { severity: "moderate", text: "Air quality concerns in East New York" }
+        { text: "Traffic congestion on BQE affecting response times" },
+        { text: "Air quality concerns in East New York" }
       ],
       population: 47000,
       breakdown: [
@@ -74,14 +70,13 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
     "Queens": {
       riskScore: 71,
       status: "HIGH",
-      statusColor: "bg-high-risk",
       aqi: 78,
       erVisits: 178,
       responseTime: "9.8m",
       avgSpeed: "9.5mph",
       alerts: [
-        { severity: "high", text: "Multiple highway delays affecting ambulance routes" },
-        { severity: "high", text: "Elevated PM2.5 near JFK Airport" }
+        { text: "Multiple highway delays affecting ambulance routes" },
+        { text: "Elevated PM2.5 near JFK Airport" }
       ],
       population: 51000,
       breakdown: [
@@ -94,13 +89,12 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
     "Staten Island": {
       riskScore: 28,
       status: "LOW",
-      statusColor: "bg-safe",
       aqi: 35,
       erVisits: 42,
       responseTime: "6.2m",
       avgSpeed: "18.3mph",
       alerts: [
-        { severity: "low", text: "All systems operating normally" }
+        { text: "All systems operating normally" }
       ],
       population: 15000,
       breakdown: [
@@ -114,20 +108,39 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
 
   const data = boroughData[borough] || boroughData["Bronx"];
 
+  const getBorderColor = () => {
+    if (data.riskScore >= 86) return 'border-red-600';
+    if (data.riskScore >= 71) return 'border-orange-600';
+    if (data.riskScore >= 51) return 'border-amber-600';
+    return 'border-blue-600';
+  };
+
+  const getStatusColor = () => {
+    if (data.riskScore >= 86) return 'bg-red-600';
+    if (data.riskScore >= 71) return 'border-orange-600';
+    return 'bg-blue-600';
+  };
+
+  const getRiskColor = () => {
+    if (data.riskScore >= 86) return 'text-red-600';
+    if (data.riskScore >= 71) return 'text-orange-600';
+    return 'text-blue-600';
+  };
+
+  const getProgressColor = () => {
+    if (data.riskScore >= 86) return 'bg-red-600';
+    if (data.riskScore >= 71) return 'bg-orange-600';
+    return 'bg-blue-600';
+  };
+
   return (
     <div className="space-y-6">
       {/* Borough Details Card */}
-      <div className={`bg-card rounded-2xl p-6 border-2 ${
-        data.riskScore >= 86 ? 'border-critical/50' :
-        data.riskScore >= 71 ? 'border-high-risk/50' :
-        data.riskScore >= 51 ? 'border-moderate/50' :
-        data.riskScore >= 31 ? 'border-info/50' :
-        'border-safe/50'
-      }`}>
+      <div className={`bg-white rounded-2xl p-6 border-2 ${getBorderColor()} shadow-sm`}>
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-2xl font-bold text-foreground">{borough}</h3>
-          <Badge className={`${data.statusColor} text-white`}>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-2xl font-bold text-slate-900">{borough}</h3>
+          <Badge className={`${getStatusColor()} text-white border-0 rounded-full px-3 py-1 text-xs font-semibold`}>
             {data.status}
           </Badge>
         </div>
@@ -135,62 +148,47 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
         {/* Health Risk Score */}
         <div className="mb-6">
           <div className="flex items-baseline gap-2 mb-2">
-            <span className="text-4xl font-bold tabular-nums text-foreground">{data.riskScore}</span>
-            <span className="text-lg text-muted-foreground">/100</span>
-            <span className="text-sm text-muted-foreground">Health Risk Score</span>
+            <span className={`text-5xl font-bold ${getRiskColor()} tabular-nums`}>{data.riskScore}</span>
+            <span className="text-lg text-slate-600">/100</span>
+            <span className="text-sm text-slate-600">Health Risk Score</span>
           </div>
           <Progress 
             value={data.riskScore} 
-            className="h-2"
-            indicatorClassName={
-              data.riskScore >= 86 ? 'bg-critical' :
-              data.riskScore >= 71 ? 'bg-high-risk' :
-              data.riskScore >= 51 ? 'bg-moderate' :
-              data.riskScore >= 31 ? 'bg-info' :
-              'bg-safe'
-            }
+            className="h-4 bg-slate-200"
+            indicatorClassName={getProgressColor()}
           />
         </div>
 
         {/* Quick Stats Grid */}
         <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-secondary/50 rounded-lg p-3">
-            <div className="text-xs text-muted-foreground mb-1">AQI</div>
-            <div className="text-2xl font-bold text-high-risk tabular-nums">{data.aqi}</div>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div className="label-default mb-1">AQI</div>
+            <div className="text-3xl font-bold text-orange-600 tabular-nums">{data.aqi}</div>
           </div>
-          <div className="bg-secondary/50 rounded-lg p-3">
-            <div className="text-xs text-muted-foreground mb-1">ER Visits</div>
-            <div className="text-2xl font-bold text-health tabular-nums">{data.erVisits}</div>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div className="label-default mb-1">ER Visits</div>
+            <div className="text-3xl font-bold text-purple-600 tabular-nums">{data.erVisits}</div>
           </div>
-          <div className="bg-secondary/50 rounded-lg p-3">
-            <div className="text-xs text-muted-foreground mb-1">Response Time</div>
-            <div className="text-2xl font-bold text-critical tabular-nums">{data.responseTime}</div>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div className="label-default mb-1">Response Time</div>
+            <div className="text-3xl font-bold text-red-600 tabular-nums">{data.responseTime}</div>
           </div>
-          <div className="bg-secondary/50 rounded-lg p-3">
-            <div className="text-xs text-muted-foreground mb-1">Avg Speed</div>
-            <div className="text-2xl font-bold text-moderate tabular-nums">{data.avgSpeed}</div>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div className="label-default mb-1">Avg Speed</div>
+            <div className="text-3xl font-bold text-amber-600 tabular-nums">{data.avgSpeed}</div>
           </div>
         </div>
 
         {/* Critical Issues */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-            <AlertTriangle className="h-4 w-4 text-critical" />
-            Critical Issues
-          </h4>
+          <h4 className="text-sm font-semibold text-slate-900 mb-3">Critical Issues</h4>
           <div className="space-y-2">
             {data.alerts.map((alert: any, index: number) => (
               <div
                 key={index}
-                className={`p-3 rounded-lg border text-sm flex items-start gap-2 ${
-                  alert.severity === 'critical' ? 'bg-critical/10 border-critical/30 text-critical' :
-                  alert.severity === 'high' ? 'bg-high-risk/10 border-high-risk/30 text-high-risk' :
-                  alert.severity === 'moderate' ? 'bg-moderate/10 border-moderate/30 text-moderate' :
-                  'bg-safe/10 border-safe/30 text-safe'
-                }`}
+                className="bg-red-50 border-l-4 border-red-600 p-3 rounded-lg text-sm text-slate-700"
               >
-                <AlertTriangle className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                <span>{alert.text}</span>
+                {alert.text}
               </div>
             ))}
           </div>
@@ -198,27 +196,27 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
 
         {/* Action Buttons */}
         <div className="space-y-2">
-          <Button className="w-full bg-info hover:bg-info/90 text-white">
+          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 font-semibold">
             Reroute Traffic
           </Button>
-          <Button className="w-full bg-safe hover:bg-safe/90 text-white">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white rounded-xl py-3 font-semibold">
             Deploy Mobile Clinic
           </Button>
-          <Button className="w-full bg-high-risk hover:bg-high-risk/90 text-white">
+          <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white rounded-xl py-3 font-semibold">
             Alert Residents
           </Button>
         </div>
       </div>
 
       {/* Population at Risk Card */}
-      <div className="bg-card rounded-2xl p-6 border-2 border-border">
-        <h4 className="text-lg font-semibold text-foreground mb-4">Population at Risk</h4>
+      <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm">
+        <h4 className="text-lg font-semibold text-slate-900 mb-4">Population at Risk</h4>
         
         <div className="mb-4">
-          <div className="text-3xl font-bold text-foreground tabular-nums mb-1">
+          <div className="text-3xl font-bold text-slate-900 tabular-nums mb-1">
             ~{data.population.toLocaleString()}
           </div>
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-slate-600">
             residents in sensitive groups
           </div>
         </div>
@@ -227,10 +225,10 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
           {data.breakdown.map((item: any, index: number) => (
             <div
               key={index}
-              className="bg-secondary rounded-lg p-3 flex items-center justify-between"
+              className="bg-slate-50 rounded-lg p-3 flex items-center justify-between"
             >
-              <span className="text-sm text-foreground">{item.label}</span>
-              <span className="text-sm font-bold text-foreground tabular-nums">
+              <span className="text-sm text-slate-600">{item.label}</span>
+              <span className="text-sm font-semibold text-slate-900 tabular-nums">
                 {item.value.toLocaleString()}
               </span>
             </div>
