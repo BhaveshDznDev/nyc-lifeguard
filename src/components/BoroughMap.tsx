@@ -66,62 +66,59 @@ export const BoroughMap = ({ onBoroughSelect, selectedBorough }: BoroughMapProps
   ];
 
   return (
-    <div className="space-y-4">
+    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between mb-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-1">NYC Health Risk Map</h2>
-          <p className="text-sm text-slate-600">
-            Click any borough to view detailed metrics • Live data updates every 30 seconds
+          <h3 className="text-lg font-semibold text-gray-900 mb-1">Interactive Borough Map</h3>
+          <p className="text-sm text-gray-600">
+            Click any borough to view detailed metrics
           </p>
         </div>
 
         {/* Live indicator */}
-        <div className="flex items-center gap-2 bg-white border-2 border-slate-200 rounded-xl px-3 py-2 shadow-sm">
-          <div className="w-2 h-2 rounded-full bg-green-600" />
-          <span className="text-sm text-slate-700">Live Data</span>
+        <div className="flex items-center gap-2 px-2 py-1">
+          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <span className="text-xs text-gray-600">Live</span>
         </div>
       </div>
 
       {/* Layer toggles */}
-      <div className="flex items-center gap-6 bg-white border-2 border-slate-200 rounded-xl p-4 shadow-sm">
-        <div className="flex items-center gap-2">
-          <Checkbox 
-            id="traffic" 
-            checked={showTraffic} 
-            onCheckedChange={(checked) => setShowTraffic(checked as boolean)}
-            className="accent-blue-600"
-          />
-          <Label htmlFor="traffic" className="text-sm text-slate-700 cursor-pointer">
-            Traffic
-          </Label>
-        </div>
-        <div className="flex items-center gap-2">
-          <Checkbox 
-            id="aqi" 
-            checked={showAQI} 
-            onCheckedChange={(checked) => setShowAQI(checked as boolean)}
-            className="accent-blue-600"
-          />
-          <Label htmlFor="aqi" className="text-sm text-slate-700 cursor-pointer">
-            AQI
-          </Label>
-        </div>
-        <div className="flex items-center gap-2">
-          <Checkbox 
-            id="emergencies" 
-            checked={showEmergencies} 
-            onCheckedChange={(checked) => setShowEmergencies(checked as boolean)}
-            className="accent-blue-600"
-          />
-          <Label htmlFor="emergencies" className="text-sm text-slate-700 cursor-pointer">
-            Emergencies
-          </Label>
-        </div>
+      <div className="flex items-center gap-3 mb-4">
+        <button
+          onClick={() => setShowTraffic(!showTraffic)}
+          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            showTraffic 
+              ? "bg-blue-100 text-blue-700" 
+              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          }`}
+        >
+          Traffic
+        </button>
+        <button
+          onClick={() => setShowAQI(!showAQI)}
+          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            showAQI 
+              ? "bg-blue-100 text-blue-700" 
+              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          }`}
+        >
+          Air Quality
+        </button>
+        <button
+          onClick={() => setShowEmergencies(!showEmergencies)}
+          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            showEmergencies 
+              ? "bg-blue-100 text-blue-700" 
+              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          }`}
+        >
+          Emergency
+        </button>
       </div>
 
       {/* Map Container */}
-      <div className="relative bg-slate-50 border-2 border-slate-200 rounded-2xl overflow-hidden h-[500px] shadow-sm">
+      <div className="relative bg-gray-50 border border-gray-200 rounded-xl overflow-hidden h-[500px]">
         <svg
           viewBox="0 0 600 600"
           className="w-full h-full"
@@ -190,28 +187,43 @@ export const BoroughMap = ({ onBoroughSelect, selectedBorough }: BoroughMapProps
         </svg>
 
         {/* Legend */}
-        <div className="absolute bottom-4 left-4 bg-white border-2 border-slate-200 rounded-xl p-4 space-y-3 shadow-md">
-          <div className="text-xs font-semibold text-slate-900 mb-2">Health Risk Level</div>
+        <div className="absolute bottom-4 left-4 bg-white border border-gray-200 rounded-xl p-4 space-y-2 shadow-lg">
+          <div className="text-xs font-semibold text-gray-900 mb-2">Health Risk Level</div>
           <div className="space-y-1.5">
-            <div className="flex items-center gap-2 text-xs">
-              <div className="w-4 h-4 rounded bg-green-600" />
-              <span className="text-slate-700">Low (0-30)</span>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-green-100 border border-green-300" />
+              <div className="flex-1">
+                <div className="text-xs font-medium text-gray-900">Low</div>
+                <div className="text-xs text-gray-500">0-30</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <div className="w-4 h-4 rounded bg-blue-600" />
-              <span className="text-slate-700">Moderate (31-50)</span>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-blue-100 border border-blue-300" />
+              <div className="flex-1">
+                <div className="text-xs font-medium text-gray-900">Moderate</div>
+                <div className="text-xs text-gray-500">31-50</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <div className="w-4 h-4 rounded bg-amber-600" />
-              <span className="text-slate-700">Elevated (51-70)</span>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-yellow-100 border border-yellow-300" />
+              <div className="flex-1">
+                <div className="text-xs font-medium text-gray-900">Elevated</div>
+                <div className="text-xs text-gray-500">51-70</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <div className="w-4 h-4 rounded bg-orange-600" />
-              <span className="text-slate-700">High (71-85)</span>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-orange-100 border border-orange-300" />
+              <div className="flex-1">
+                <div className="text-xs font-medium text-gray-900">High</div>
+                <div className="text-xs text-gray-500">71-85</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
-              <div className="w-4 h-4 rounded bg-red-600" />
-              <span className="text-slate-700">Critical (86-100)</span>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-red-100 border border-red-300" />
+              <div className="flex-1">
+                <div className="text-xs font-medium text-gray-900">Critical</div>
+                <div className="text-xs text-gray-500">86-100</div>
+              </div>
             </div>
           </div>
         </div>
