@@ -15,7 +15,7 @@ export const MetricsGrid = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
       {/* Card 1: Emergency Response Time */}
       <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <div className="p-2 bg-critical/10 rounded-lg">
             <Ambulance className="h-5 w-5 text-critical" />
           </div>
@@ -23,6 +23,8 @@ export const MetricsGrid = () => {
             ↑ 1.3 min
           </Badge>
         </div>
+        
+        <h3 className="text-sm font-medium text-muted-foreground mb-4">Emergency Response Time</h3>
         
         <div className="mb-1">
           <span className="metric-large text-foreground">9.2</span>
@@ -50,6 +52,8 @@ export const MetricsGrid = () => {
             Correlated
           </Badge>
         </div>
+        
+        <h3 className="text-sm font-medium text-muted-foreground mb-4">Traffic Congestion vs Collisions</h3>
         
         <div className="mb-1">
           <span className="text-2xl font-bold text-foreground">62%</span>
@@ -106,6 +110,8 @@ export const MetricsGrid = () => {
           </Badge>
         </div>
         
+        <h3 className="text-sm font-medium text-muted-foreground mb-4">Congestion Impact on Air Quality</h3>
+        
         <div className="mb-1">
           <span className="text-2xl font-bold text-foreground">20</span>
           <span className="text-sm text-muted-foreground ml-2">complaints</span>
@@ -152,7 +158,7 @@ export const MetricsGrid = () => {
 
       {/* Card 4: Health Risk Score */}
       <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <div className="p-2 bg-safe/10 rounded-lg">
             <Heart className="h-5 w-5 text-safe" />
           </div>
@@ -160,6 +166,8 @@ export const MetricsGrid = () => {
             ↓ 4%
           </Badge>
         </div>
+        
+        <h3 className="text-sm font-medium text-muted-foreground mb-4">Overall Health Risk Score</h3>
         
         <div className="mb-1">
           <span className="metric-large text-foreground">72</span>
