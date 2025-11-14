@@ -118,47 +118,6 @@ export const MetricsGrid = () => {
           ))}
         </div>
       </div>
-
-      {/* CARD 4: Lives Saved Today */}
-      <div className="bg-green-50 rounded-2xl p-8 border-2 border-slate-200 border-l-4 border-l-green-600 shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <Heart className="h-6 w-6 text-green-600 fill-green-600" />
-            <p className="label-default">Lives Saved Today</p>
-          </div>
-          <Badge className="bg-green-600 text-white border-0 rounded-full px-3 py-1 text-xs font-semibold">
-            ACTIVE
-          </Badge>
-        </div>
-
-        <div className="mb-6">
-          <span className="text-6xl font-bold text-green-600 tabular-nums">12-18</span>
-          <p className="text-sm text-slate-600 mt-1">potential lives saved</p>
-        </div>
-
-        <div className="space-y-2 mb-6">
-          <div className="flex items-center gap-2 text-sm text-slate-700">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <span>3 ambulances rerouted</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-slate-700">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <span>2 mobile clinics deployed</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-slate-700">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <span>Traffic optimized</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-slate-700">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <span>12 alerts sent</span>
-          </div>
-        </div>
-
-        <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-3">
-          View Details →
-        </Button>
-      </div>
     </div>
   );
 };
