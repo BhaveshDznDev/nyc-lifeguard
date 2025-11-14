@@ -1,14 +1,15 @@
-import { Ambulance, TrendingUp, Building2, Heart } from "lucide-react";
+import { Ambulance, TrendingUp, Phone, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export const MetricsGrid = () => {
   const sparklineData = [45, 52, 48, 65, 72, 68, 58, 62, 70, 75, 82, 78, 85, 88, 92, 87, 83, 79, 74, 68];
-  const erVisitsData = [720, 780, 850, 820, 870, 890, 847];
   
   // Traffic congestion data (percentage)
   const congestionData = [45, 48, 52, 58, 62, 68, 72, 75, 78, 82, 85, 83, 80, 78, 75, 72, 70, 68, 65, 62];
   // Collision data (number of incidents)
   const collisionData = [12, 15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 43, 40, 38, 35, 32, 30, 28, 25, 22];
+  // 311 Air quality complaints data
+  const airQualityComplaints = [8, 10, 12, 15, 18, 22, 26, 28, 32, 35, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -94,30 +95,58 @@ export const MetricsGrid = () => {
         </div>
       </div>
 
-      {/* Card 3: Hospital ER Visits */}
+      {/* Card 3: Congestion vs Air Quality Complaints */}
       <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-        <div className="flex items-center justify-between mb-6">
-          <div className="p-2 bg-health/10 rounded-lg">
-            <Building2 className="h-5 w-5 text-health" />
+        <div className="flex items-center justify-between mb-4">
+          <div className="p-2 bg-info/10 rounded-lg">
+            <Phone className="h-5 w-5 text-info" />
           </div>
-          <Badge className="bg-health/10 text-health border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
-            ↑ 12%
+          <Badge className="bg-info/10 text-info border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
+            +18% trend
           </Badge>
         </div>
         
         <div className="mb-1">
-          <span className="metric-large text-foreground">847</span>
+          <span className="text-2xl font-bold text-foreground">20</span>
+          <span className="text-sm text-muted-foreground ml-2">complaints</span>
         </div>
-        <p className="text-sm text-muted-foreground mb-6">Traffic-related</p>
+        <p className="text-sm text-muted-foreground mb-4">311 Air Quality reports today</p>
         
-        <div className="flex items-end gap-1 h-12">
-          {erVisitsData.map((value, i) => (
-            <div
-              key={i}
-              className="flex-1 bg-health/20 rounded-t hover:bg-health/30 transition-colors"
-              style={{ height: `${(value / 900) * 100}%` }}
-            />
-          ))}
+        {/* Dual trendline showing correlation */}
+        <div className="relative h-16 mb-2">
+          {/* Congestion baseline */}
+          <div className="absolute inset-0 flex items-end gap-1 opacity-30">
+            {congestionData.map((value, i) => (
+              <div
+                key={`cong-base-${i}`}
+                className="flex-1 bg-muted rounded-t"
+                style={{ height: `${(value / 100) * 80}%` }}
+              />
+            ))}
+          </div>
+          
+          {/* Air quality complaints overlay */}
+          <div className="absolute inset-0 flex items-end gap-1">
+            {airQualityComplaints.map((value, i) => (
+              <div
+                key={`aq-${i}`}
+                className="flex-1 bg-info/40 rounded-t transition-all hover:bg-info/50"
+                style={{ height: `${(value / 40) * 100}%` }}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Legend */}
+        <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-sm bg-muted/50"></div>
+            <span className="text-muted-foreground">Congestion</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-sm bg-info/40"></div>
+            <span className="text-muted-foreground">311 Complaints</span>
+          </div>
         </div>
       </div>
 
