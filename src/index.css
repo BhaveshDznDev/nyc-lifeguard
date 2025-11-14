@@ -8,68 +8,68 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Coffee Shop Aesthetic - Warm & Inviting */
-    --background: 30 40% 96%;           /* #F5F1ED warm cream background */
-    --foreground: 25 25% 20%;           /* #3D3226 deep coffee brown text */
+    /* Minimalist Design System */
+    --background: 0 0% 98%;             /* #FAFAFA clean white */
+    --foreground: 0 0% 10%;             /* #1A1A1A dark text */
 
-    --card: 30 50% 98%;                 /* #FBF9F7 warm white cards */
-    --card-foreground: 25 25% 20%;
+    --card: 0 0% 100%;                  /* #FFFFFF pure white cards */
+    --card-foreground: 0 0% 10%;
 
-    --popover: 30 50% 98%;
-    --popover-foreground: 25 25% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 25 45% 35%;              /* #6F4E37 rich coffee brown */
-    --primary-foreground: 30 40% 96%;
+    --primary: 217 91% 60%;             /* #3B82F6 clean blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 35% 92%;            /* #F0EBE3 warm beige */
-    --secondary-foreground: 25 25% 20%;
+    --secondary: 0 0% 96%;              /* #F5F5F5 light gray */
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 25 15% 55%;                /* #8B7E74 warm gray */
-    --muted-foreground: 30 20% 70%;     /* #B5A99C light warm gray */
+    --muted: 0 0% 60%;                  /* #999999 muted gray */
+    --muted-foreground: 0 0% 46%;       /* #757575 muted text */
 
-    --accent: 35 65% 50%;               /* #D4A574 warm amber */
-    --accent-foreground: 30 40% 96%;
+    --accent: 217 91% 60%;              /* #3B82F6 accent blue */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 50%;           /* #DC2626 warm red */
-    --destructive-foreground: 30 40% 96%;
+    --destructive: 0 72% 51%;           /* #E11D48 red */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 30% 88%;               /* #E8DFD6 warm border */
-    --input: 30 30% 88%;
-    --ring: 25 45% 35%;
+    --border: 0 0% 90%;                 /* #E5E5E5 subtle border */
+    --input: 0 0% 90%;
+    --ring: 217 91% 60%;
 
-    --radius: 1.25rem;
+    --radius: 0.75rem;
 
-    /* Coffee-Inspired Status Colors */
-    --critical: 0 72% 50%;              /* #DC2626 warm red */
-    --critical-bg: 0 70% 95%;           /* #FCEAEA light red */
-    --high-risk: 25 75% 50%;            /* #E07B39 burnt orange */
-    --high-risk-bg: 25 70% 92%;         /* #FAE8D9 light orange */
-    --moderate: 40 85% 55%;             /* #F4B860 golden yellow */
-    --moderate-bg: 40 80% 93%;          /* #FEF5E5 light yellow */
-    --safe: 142 71% 45%;                /* #10B981 emerald green */
-    --safe-bg: 142 60% 92%;             /* #D7F5E9 light green */
-    --info: 200 70% 45%;                /* #2B8FA6 teal blue */
-    --info-bg: 200 60% 93%;             /* #E0F2F7 light blue */
-    --health: 280 60% 50%;              /* #9333EA deep purple */
-    --health-bg: 280 55% 94%;           /* #F3E8FF light purple */
+    /* Status Colors */
+    --critical: 0 72% 51%;              /* #E11D48 red */
+    --critical-bg: 0 70% 97%;           /* light red bg */
+    --high-risk: 25 95% 53%;            /* #FB923C orange */
+    --high-risk-bg: 25 90% 97%;         /* light orange bg */
+    --moderate: 45 93% 47%;             /* #EAB308 yellow */
+    --moderate-bg: 45 90% 97%;          /* light yellow bg */
+    --safe: 142 76% 36%;                /* #10B981 green */
+    --safe-bg: 142 70% 97%;             /* light green bg */
+    --info: 217 91% 60%;                /* #3B82F6 blue */
+    --info-bg: 217 90% 97%;             /* light blue bg */
+    --health: 262 83% 58%;              /* #A855F7 purple */
+    --health-bg: 262 80% 97%;           /* light purple bg */
 
-    /* Warm Accent Colors for Charts */
-    --espresso: 25 60% 25%;             /* #4D3319 dark espresso */
-    --latte: 35 50% 75%;                /* #D9BF9F latte cream */
-    --caramel: 35 65% 55%;              /* #D4A574 caramel */
-    --mocha: 20 40% 40%;                /* #8B6F47 mocha */
-    --cinnamon: 15 60% 55%;             /* #D9825C cinnamon */
-    --honey: 45 90% 60%;                /* #F4D06F honey gold */
+    /* Chart Colors */
+    --chart-1: 217 91% 60%;             /* #3B82F6 blue */
+    --chart-2: 25 95% 53%;              /* #FB923C orange */
+    --chart-3: 142 76% 36%;             /* #10B981 green */
+    --chart-4: 262 83% 58%;             /* #A855F7 purple */
+    --chart-5: 45 93% 47%;              /* #EAB308 yellow */
+    --chart-6: 0 72% 51%;               /* #E11D48 red */
 
-    /* Sidebar - Coffee Theme */
-    --sidebar-background: 30 50% 98%;
-    --sidebar-foreground: 25 25% 20%;
-    --sidebar-primary: 25 45% 35%;
-    --sidebar-primary-foreground: 30 40% 96%;
-    --sidebar-accent: 30 35% 92%;
-    --sidebar-accent-foreground: 25 25% 20%;
-    --sidebar-border: 30 30% 88%;
-    --sidebar-ring: 25 45% 35%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -83,42 +83,42 @@ All colors MUST be HSL.
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  /* Typography System - Warm & Inviting */
+  /* Typography System - Clean & Minimal */
   h1 {
-    @apply text-3xl font-bold text-foreground;
+    @apply text-2xl font-semibold text-foreground;
   }
   
   h2 {
-    @apply text-2xl font-bold text-foreground;
-  }
-  
-  h3 {
     @apply text-xl font-semibold text-foreground;
   }
   
+  h3 {
+    @apply text-lg font-medium text-foreground;
+  }
+  
   h4 {
-    @apply text-lg font-semibold text-foreground;
+    @apply text-base font-medium text-foreground;
   }
 
   /* Large metrics display */
   .metric-hero {
-    @apply text-6xl font-bold tabular-nums;
+    @apply text-5xl font-bold tabular-nums tracking-tight;
   }
   
   .metric-large {
-    @apply text-5xl font-bold tabular-nums;
+    @apply text-4xl font-bold tabular-nums tracking-tight;
   }
   
   .metric-medium {
-    @apply text-3xl font-bold tabular-nums;
+    @apply text-3xl font-bold tabular-nums tracking-tight;
   }
   
   .metric-small {
-    @apply text-2xl font-bold tabular-nums;
+    @apply text-2xl font-semibold tabular-nums tracking-tight;
   }
 
   /* Labels */
   .label-default {
-    @apply uppercase text-xs tracking-wide text-slate-500 font-medium;
+    @apply text-sm text-muted-foreground font-normal;
   }
 }

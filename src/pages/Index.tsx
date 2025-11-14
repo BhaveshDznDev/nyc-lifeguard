@@ -34,7 +34,7 @@ const Index = () => {
       <Sidebar activeView={activeView} onViewChange={setActiveView} />
 
       {/* Main Content */}
-      <main className="ml-60 mr-80 p-8">
+      <main className="ml-20 mr-80 p-8">
         {/* Top Bar */}
         <div className="flex items-start justify-between mb-8">
           <div>

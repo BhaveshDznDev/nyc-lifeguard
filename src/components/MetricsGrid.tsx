@@ -8,27 +8,26 @@ export const MetricsGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
       {/* Card 1: Emergency Response Time */}
-      <div className="bg-card rounded-2xl p-6 border-l-4 border-critical shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Ambulance className="h-5 w-5 text-gray-400" />
-            <span className="text-xs text-gray-600 font-medium">Emergency Response</span>
+      <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <div className="p-2 bg-critical/10 rounded-lg">
+            <Ambulance className="h-5 w-5 text-critical" />
           </div>
-          <Badge className="bg-critical-bg text-critical border-0 rounded-full px-2 py-1 text-xs font-medium">
+          <Badge className="bg-critical/10 text-critical border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
             ↑ 1.3 min
           </Badge>
         </div>
         
-        <div className="mb-2">
-          <span className="text-4xl font-bold text-gray-900 tabular-nums">9.2</span>
+        <div className="mb-1">
+          <span className="metric-large text-foreground">9.2</span>
         </div>
-        <p className="text-sm text-gray-600 mb-4">minutes average</p>
+        <p className="text-sm text-muted-foreground mb-6">minutes average</p>
         
-        <div className="flex items-end gap-0.5 h-12 mb-2">
+        <div className="flex items-end gap-1 h-12">
           {sparklineData.map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-critical rounded-t-sm hover:opacity-80 transition-opacity"
+              className="flex-1 bg-critical/20 rounded-t hover:bg-critical/30 transition-colors"
               style={{ height: `${(value / 100) * 100}%` }}
             />
           ))}
@@ -36,27 +35,26 @@ export const MetricsGrid = () => {
       </div>
 
       {/* Card 2: Air Quality Index */}
-      <div className="bg-high-risk-bg/30 rounded-2xl p-6 border-l-4 border-high-risk shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Cloud className="h-5 w-5 text-gray-400" />
-            <span className="text-xs text-gray-600 font-medium">Air Quality Index</span>
+      <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <div className="p-2 bg-high-risk/10 rounded-lg">
+            <Cloud className="h-5 w-5 text-high-risk" />
           </div>
-          <Badge className="bg-high-risk-bg text-high-risk border-0 rounded-full px-2 py-1 text-xs font-medium">
+          <Badge className="bg-high-risk/10 text-high-risk border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
             ↑ 3.1%
           </Badge>
         </div>
         
-        <div className="mb-2">
-          <span className="text-4xl font-bold text-high-risk tabular-nums">87</span>
+        <div className="mb-1">
+          <span className="metric-large text-foreground">87</span>
         </div>
-        <p className="text-sm text-gray-600 mb-4">Moderate</p>
+        <p className="text-sm text-muted-foreground mb-6">Moderate</p>
         
-        <div className="flex items-end gap-0.5 h-12 mb-2">
+        <div className="flex items-end gap-1 h-12">
           {sparklineData.map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-high-risk rounded-t-sm hover:opacity-80 transition-opacity"
+              className="flex-1 bg-high-risk/20 rounded-t hover:bg-high-risk/30 transition-colors"
               style={{ height: `${((value + 10) / 100) * 100}%` }}
             />
           ))}
@@ -64,56 +62,54 @@ export const MetricsGrid = () => {
       </div>
 
       {/* Card 3: Hospital ER Visits */}
-      <div className="bg-health-bg/30 rounded-2xl p-6 border-l-4 border-health shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '200ms' }}>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-gray-400" />
-            <span className="text-xs text-gray-600 font-medium">ER Visits Today</span>
+      <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <div className="p-2 bg-health/10 rounded-lg">
+            <Building2 className="h-5 w-5 text-health" />
           </div>
-          <Badge className="bg-health-bg text-health border-0 rounded-full px-2 py-1 text-xs font-medium">
+          <Badge className="bg-health/10 text-health border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
             ↑ 12%
           </Badge>
         </div>
         
-        <div className="mb-2">
-          <span className="text-4xl font-bold text-health tabular-nums">847</span>
+        <div className="mb-1">
+          <span className="metric-large text-foreground">847</span>
         </div>
-        <p className="text-sm text-gray-600 mb-4">Traffic-related</p>
+        <p className="text-sm text-muted-foreground mb-6">Traffic-related</p>
         
-        <div className="flex items-end gap-0.5 h-12 mb-2">
+        <div className="flex items-end gap-1 h-12">
           {erVisitsData.map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-health rounded-t-sm hover:opacity-80 transition-opacity"
+              className="flex-1 bg-health/20 rounded-t hover:bg-health/30 transition-colors"
               style={{ height: `${(value / 900) * 100}%` }}
             />
           ))}
         </div>
       </div>
 
-      {/* Card 4: Lives Saved Today */}
-      <div className="bg-safe-bg/30 rounded-2xl p-6 border-l-4 border-safe shadow-sm hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: '300ms' }}>
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Heart className="h-5 w-5 text-safe fill-safe" />
-            <span className="text-xs text-gray-600 font-medium">Lives Saved Today</span>
+      {/* Card 4: Health Risk Score */}
+      <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <div className="p-2 bg-safe/10 rounded-lg">
+            <Heart className="h-5 w-5 text-safe" />
           </div>
-          <Badge className="bg-safe text-white border-0 rounded-full px-2 py-1 text-xs font-medium">
-            Active
+          <Badge className="bg-safe/10 text-safe border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
+            ↓ 4%
           </Badge>
         </div>
         
-        <div className="mb-2">
-          <span className="text-4xl font-bold text-safe tabular-nums">12-18</span>
+        <div className="mb-1">
+          <span className="metric-large text-foreground">72</span>
         </div>
-        <p className="text-sm text-gray-600 mb-4">Potential impact</p>
+        <p className="text-sm text-muted-foreground mb-6">Good</p>
         
-        <div className="flex items-end gap-0.5 h-12 mb-2">
-          {[65, 72, 78, 85, 88, 92, 95].map((value, i) => (
+        <div className="flex items-end gap-1 h-12">
+          {sparklineData.reverse().map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-safe rounded-t-sm hover:opacity-80 transition-opacity"
-              style={{ height: `${(value / 100) * 100}%` }}
+              className="flex-1 bg-safe/20 rounded-t hover:bg-safe/30 transition-colors"
+              style={{ height: `${((100 - value) / 100) * 100}%` }}
             />
           ))}
         </div>

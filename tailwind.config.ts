@@ -57,7 +57,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Coffee-Inspired Status Colors
+        // Status Colors
         critical: "hsl(var(--critical))",
         "critical-bg": "hsl(var(--critical-bg))",
         "high-risk": "hsl(var(--high-risk))",
@@ -70,13 +70,15 @@ export default {
         "info-bg": "hsl(var(--info-bg))",
         health: "hsl(var(--health))",
         "health-bg": "hsl(var(--health-bg))",
-        // Warm Coffee Chart Colors
-        espresso: "hsl(var(--espresso))",
-        latte: "hsl(var(--latte))",
-        caramel: "hsl(var(--caramel))",
-        mocha: "hsl(var(--mocha))",
-        cinnamon: "hsl(var(--cinnamon))",
-        honey: "hsl(var(--honey))",
+        // Chart Colors
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+          "6": "hsl(var(--chart-6))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
