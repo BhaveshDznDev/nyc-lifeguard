@@ -165,7 +165,7 @@ export const MetricsGrid = () => {
             <Clock className="h-5 w-5 text-moderate" />
           </div>
           <Badge className="bg-critical/10 text-critical border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
-            Peak: 5-7 PM
+            Peak: 4-8 PM
           </Badge>
         </div>
         
@@ -178,32 +178,53 @@ export const MetricsGrid = () => {
         <p className="text-sm text-muted-foreground mb-4">Current speed (5:30 PM)</p>
         
         {/* 24-hour speed chart */}
-        <div className="relative h-16 mb-2">
-          <div className="absolute inset-0 flex items-end gap-0.5">
+        <div className="relative">
+          {/* Peak hours background highlight */}
+          <div className="absolute top-0 h-16 bg-critical/5 rounded" 
+               style={{ 
+                 left: `${(16 / 24) * 100}%`, 
+                 width: `${(4 / 24) * 100}%` 
+               }}>
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] text-critical font-medium whitespace-nowrap">
+              Peak Hours
+            </div>
+          </div>
+          
+          <div className="relative flex items-end gap-0.5 h-16 mb-3">
             {hourlySpeed.map((speed, i) => {
-              const isPeakHour = i >= 16 && i <= 19; // 5 PM - 8 PM
+              const isPeakHour = i >= 16 && i <= 19; // 4 PM - 8 PM
               return (
                 <div
                   key={`hour-${i}`}
-                  className={`flex-1 rounded-t transition-all ${
+                  className={`flex-1 rounded-t transition-all relative group ${
                     isPeakHour 
                       ? 'bg-critical/40 hover:bg-critical/50' 
                       : 'bg-moderate/30 hover:bg-moderate/40'
                   }`}
                   style={{ height: `${(speed / 45) * 100}%` }}
-                  title={`${i}:00 - ${speed} mph`}
-                />
+                >
+                  {/* Tooltip on hover */}
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    <div className="bg-foreground text-background text-[10px] px-2 py-1 rounded whitespace-nowrap">
+                      {i === 0 ? '12 AM' : i < 12 ? `${i} AM` : i === 12 ? '12 PM' : `${i - 12} PM`}: {speed} mph
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
         
-        {/* Time labels */}
-        <div className="flex justify-between text-xs text-muted-foreground">
-          <span>12 AM</span>
-          <span>6 AM</span>
-          <span>12 PM</span>
-          <span>6 PM</span>
+        {/* Enhanced time labels with markers */}
+        <div className="relative">
+          <div className="flex justify-between text-[10px] text-muted-foreground font-medium">
+            <span>12AM</span>
+            <span>6AM</span>
+            <span>12PM</span>
+            <span className="text-critical">4PM</span>
+            <span className="text-critical font-semibold">6PM</span>
+            <span>12AM</span>
+          </div>
         </div>
       </div>
     </div>
