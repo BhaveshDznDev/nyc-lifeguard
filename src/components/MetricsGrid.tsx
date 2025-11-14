@@ -1,4 +1,4 @@
-import { Ambulance, TrendingUp, Phone, Heart } from "lucide-react";
+import { Ambulance, TrendingUp, Phone, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export const MetricsGrid = () => {
@@ -10,6 +10,8 @@ export const MetricsGrid = () => {
   const collisionData = [12, 15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 43, 40, 38, 35, 32, 30, 28, 25, 22];
   // 311 Air quality complaints data
   const airQualityComplaints = [8, 10, 12, 15, 18, 22, 26, 28, 32, 35, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20];
+  // Hourly average speed data (mph) - 24 hours
+  const hourlySpeed = [35, 38, 42, 45, 42, 35, 28, 22, 18, 15, 16, 18, 20, 22, 20, 18, 15, 14, 16, 20, 25, 30, 32, 34];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -156,32 +158,52 @@ export const MetricsGrid = () => {
         </div>
       </div>
 
-      {/* Card 4: Health Risk Score */}
+      {/* Card 4: Hourly Speed Trends */}
       <div className="bg-card rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
-          <div className="p-2 bg-safe/10 rounded-lg">
-            <Heart className="h-5 w-5 text-safe" />
+          <div className="p-2 bg-moderate/10 rounded-lg">
+            <Clock className="h-5 w-5 text-moderate" />
           </div>
-          <Badge className="bg-safe/10 text-safe border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
-            ↓ 4%
+          <Badge className="bg-critical/10 text-critical border-0 rounded-lg px-2.5 py-1 text-xs font-medium">
+            Peak: 5-7 PM
           </Badge>
         </div>
         
-        <h3 className="text-sm font-medium text-muted-foreground mb-4">Overall Health Risk Score</h3>
+        <h3 className="text-sm font-medium text-muted-foreground mb-4">Hourly Average Speed</h3>
         
         <div className="mb-1">
-          <span className="metric-large text-foreground">72</span>
+          <span className="text-2xl font-bold text-foreground">14</span>
+          <span className="text-sm text-muted-foreground ml-2">mph</span>
         </div>
-        <p className="text-sm text-muted-foreground mb-6">Good</p>
+        <p className="text-sm text-muted-foreground mb-4">Current speed (5:30 PM)</p>
         
-        <div className="flex items-end gap-1 h-12">
-          {sparklineData.reverse().map((value, i) => (
-            <div
-              key={i}
-              className="flex-1 bg-safe/20 rounded-t hover:bg-safe/30 transition-colors"
-              style={{ height: `${((100 - value) / 100) * 100}%` }}
-            />
-          ))}
+        {/* 24-hour speed chart */}
+        <div className="relative h-16 mb-2">
+          <div className="absolute inset-0 flex items-end gap-0.5">
+            {hourlySpeed.map((speed, i) => {
+              const isPeakHour = i >= 16 && i <= 19; // 5 PM - 8 PM
+              return (
+                <div
+                  key={`hour-${i}`}
+                  className={`flex-1 rounded-t transition-all ${
+                    isPeakHour 
+                      ? 'bg-critical/40 hover:bg-critical/50' 
+                      : 'bg-moderate/30 hover:bg-moderate/40'
+                  }`}
+                  style={{ height: `${(speed / 45) * 100}%` }}
+                  title={`${i}:00 - ${speed} mph`}
+                />
+              );
+            })}
+          </div>
+        </div>
+        
+        {/* Time labels */}
+        <div className="flex justify-between text-xs text-muted-foreground">
+          <span>12 AM</span>
+          <span>6 AM</span>
+          <span>12 PM</span>
+          <span>6 PM</span>
         </div>
       </div>
     </div>
