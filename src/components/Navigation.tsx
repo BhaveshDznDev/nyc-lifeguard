@@ -54,19 +54,19 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border">
-      <div className="max-w-[1920px] mx-auto px-6 h-[72px] flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+      <div className="max-w-[1920px] mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">NYC</span>
+          <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+            <span className="text-white font-bold text-lg">NYC</span>
           </div>
           
           <div className="flex flex-col">
-            <h1 className="text-xl font-semibold text-foreground leading-tight">
+            <h1 className="text-2xl font-bold text-slate-900 leading-tight">
               NYC Health & Traffic Intelligence
             </h1>
-            <p className="text-sm text-muted-foreground leading-tight">
+            <p className="text-sm text-slate-600 leading-tight">
               Real-time Life-Saving System • All 5 Boroughs
             </p>
           </div>
@@ -76,14 +76,14 @@ export const Navigation = () => {
         <div className="flex items-center gap-6">
           {/* Borough Filter */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Filter by Borough</label>
+            <label className="text-xs text-slate-500 font-medium">Filter by Borough</label>
             <Select value={selectedBorough} onValueChange={setSelectedBorough}>
-              <SelectTrigger className="w-[200px] bg-secondary border-border">
+              <SelectTrigger className="w-[200px] bg-white border-2 border-slate-200 rounded-xl py-3 px-5 font-medium text-slate-700 hover:bg-gray-50">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-popover border-border">
+              <SelectContent className="bg-white border-2 border-slate-200 rounded-xl">
                 {BOROUGHS.map((borough) => (
-                  <SelectItem key={borough} value={borough}>
+                  <SelectItem key={borough} value={borough} className="hover:bg-slate-50">
                     {borough}
                   </SelectItem>
                 ))}
@@ -93,23 +93,17 @@ export const Navigation = () => {
 
           {/* Date & Time Display */}
           <div className="flex flex-col items-end gap-1 min-w-[180px]">
-            <div className="text-sm font-medium text-foreground tabular-nums">
+            <div className="text-sm font-semibold text-slate-900 tabular-nums">
               {currentTime}
             </div>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-slate-500">
               {currentDate}
             </div>
           </div>
 
           {/* Critical Alerts Badge */}
-          <Badge 
-            variant="destructive" 
-            className="bg-critical hover:bg-critical/90 text-white px-4 py-2 text-sm font-medium flex items-center gap-2"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-pulse-critical absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-            </span>
+          <Badge className="bg-red-100 border border-red-300 text-red-700 px-4 py-2 text-sm font-semibold flex items-center gap-2 hover:bg-red-100">
+            <div className="w-2 h-2 rounded-full bg-red-600" />
             {criticalAlerts} Critical Alerts
           </Badge>
         </div>
