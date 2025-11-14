@@ -50,14 +50,14 @@ export const AIInsightsPanel = () => {
   ];
 
   return (
-    <aside className="fixed right-0 top-0 h-screen w-80 bg-white border-l border-gray-200 p-6 overflow-y-auto z-40">
+    <aside className="fixed right-0 top-0 h-screen w-80 bg-card border-l border-border p-6 overflow-y-auto z-40 shadow-sm">
       {/* Header */}
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-2">
-          <Sparkles className="w-6 h-6 text-purple-500" />
-          <h2 className="text-lg font-bold text-gray-900">AI Insights</h2>
+          <Sparkles className="w-6 h-6 text-accent" />
+          <h2 className="text-lg font-bold text-foreground">AI Insights</h2>
         </div>
-        <p className="text-xs text-gray-500">Real-time predictions</p>
+        <p className="text-xs text-muted-foreground">Real-time predictions</p>
       </div>
 
       {/* Insight Cards */}
@@ -67,15 +67,16 @@ export const AIInsightsPanel = () => {
           return (
             <div
               key={index}
-              className={`border-l-4 ${insight.borderColor} ${insight.bgColor} rounded-xl p-4`}
+              className={`border-l-4 ${insight.borderColor} ${insight.bgColor} rounded-xl p-4 transition-all duration-300 hover:shadow-md animate-slide-up`}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-start gap-3">
-                <div className={`w-10 h-10 rounded-lg ${insight.iconBg} flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-10 h-10 rounded-xl ${insight.iconBg} flex items-center justify-center flex-shrink-0 shadow-sm`}>
                   <Icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-1">{insight.title}</h4>
-                  <p className="text-xs text-gray-600 leading-relaxed">{insight.description}</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">{insight.title}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{insight.description}</p>
                 </div>
               </div>
             </div>
@@ -84,20 +85,20 @@ export const AIInsightsPanel = () => {
       </div>
 
       {/* System Status */}
-      <div className="pt-4 border-t border-gray-200">
-        <h3 className="text-sm font-semibold text-gray-900 mb-3">System Status</h3>
+      <div className="pt-4 border-t border-border">
+        <h3 className="text-sm font-semibold text-foreground mb-3">System Status</h3>
         <div className="space-y-2">
-          <div className="flex justify-between items-center py-2 border-b border-gray-100">
-            <span className="text-xs text-gray-600">Data Accuracy</span>
-            <span className="text-sm font-semibold text-green-600">94.2%</span>
+          <div className="flex justify-between items-center py-2 border-b border-border/50">
+            <span className="text-xs text-muted-foreground">Data Accuracy</span>
+            <span className="text-sm font-semibold text-safe">94.2%</span>
           </div>
-          <div className="flex justify-between items-center py-2 border-b border-gray-100">
-            <span className="text-xs text-gray-600">Active Alerts</span>
-            <span className="text-sm font-semibold text-blue-600">2,847</span>
+          <div className="flex justify-between items-center py-2 border-b border-border/50">
+            <span className="text-xs text-muted-foreground">Active Alerts</span>
+            <span className="text-sm font-semibold text-info">2,847</span>
           </div>
           <div className="flex justify-between items-center py-2">
-            <span className="text-xs text-gray-600">Lives Saved Today</span>
-            <span className="text-sm font-semibold text-green-600">156</span>
+            <span className="text-xs text-muted-foreground">Lives Saved Today</span>
+            <span className="text-sm font-semibold text-safe">156</span>
           </div>
         </div>
       </div>

@@ -57,7 +57,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Pastel Status Colors
+        // Coffee-Inspired Status Colors
         critical: "hsl(var(--critical))",
         "critical-bg": "hsl(var(--critical-bg))",
         "high-risk": "hsl(var(--high-risk))",
@@ -70,13 +70,13 @@ export default {
         "info-bg": "hsl(var(--info-bg))",
         health: "hsl(var(--health))",
         "health-bg": "hsl(var(--health-bg))",
-        // Pastel Chart Colors
-        mint: "hsl(var(--mint))",
-        sky: "hsl(var(--sky))",
-        peach: "hsl(var(--peach))",
-        lavender: "hsl(var(--lavender))",
-        coral: "hsl(var(--coral))",
-        teal: "hsl(var(--teal))",
+        // Warm Coffee Chart Colors
+        espresso: "hsl(var(--espresso))",
+        latte: "hsl(var(--latte))",
+        caramel: "hsl(var(--caramel))",
+        mocha: "hsl(var(--mocha))",
+        cinnamon: "hsl(var(--cinnamon))",
+        honey: "hsl(var(--honey))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -110,11 +110,31 @@ export default {
             transform: "translateY(0)"
           }
         },
+        "slide-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "-1000px 0"
+          },
+          "100%": {
+            backgroundPosition: "1000px 0"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.5s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+        "shimmer": "shimmer 2s infinite linear",
       },
     },
   },

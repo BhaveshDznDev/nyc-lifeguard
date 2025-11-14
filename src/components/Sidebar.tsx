@@ -28,16 +28,16 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-60 bg-white border-r border-gray-200 p-6 flex flex-col z-40">
+    <aside className="fixed left-0 top-0 h-screen w-60 bg-card border-r border-border p-6 flex flex-col z-40 shadow-sm">
       {/* Logo Section */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
-            <span className="text-white font-bold text-sm">NYC</span>
+          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-md">
+            <span className="text-primary-foreground font-bold text-sm">NYC</span>
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-gray-900">NYC Command</h1>
-            <p className="text-xs text-gray-500">Health & Traffic</p>
+            <h1 className="text-lg font-semibold text-foreground">NYC Command</h1>
+            <p className="text-xs text-muted-foreground">Health & Traffic</p>
           </div>
         </div>
       </div>
@@ -52,10 +52,10 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
             <button
               key={item.id}
               onClick={() => onViewChange(item.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all mb-2 ${
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 mb-2 ${
                 isActive
-                  ? "bg-blue-50 text-blue-700 border-l-4 border-blue-600 font-semibold"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-primary/10 text-primary border-l-4 border-primary font-semibold shadow-sm"
+                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
               }`}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
@@ -69,13 +69,13 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
       </nav>
 
       {/* Bottom Section */}
-      <div className="pt-4 mt-auto border-t border-gray-200">
-        <div className="text-xs text-gray-500">
+      <div className="pt-4 mt-auto border-t border-border">
+        <div className="text-xs text-muted-foreground">
           <div className="flex items-center justify-between mb-1">
             <span>System Status</span>
-            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            <span className="w-2 h-2 rounded-full bg-safe shadow-sm"></span>
           </div>
-          <div className="text-gray-400">All systems operational</div>
+          <div className="text-muted">All systems operational</div>
         </div>
       </div>
     </aside>
