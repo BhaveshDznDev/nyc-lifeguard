@@ -1,7 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { AlertTriangle } from "lucide-react";
+import { AlertCircle, Clock, TrendingUp } from "lucide-react";
 
 interface BoroughDetailsProps {
   borough: string;
@@ -179,61 +177,43 @@ export const BoroughDetails = ({ borough }: BoroughDetailsProps) => {
           </div>
         </div>
 
-        {/* Critical Issues */}
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold text-slate-900 mb-3">Critical Issues</h4>
-          <div className="space-y-2">
-            {data.alerts.map((alert: any, index: number) => (
-              <div
-                key={index}
-                className="bg-red-50 border-l-4 border-red-600 p-3 rounded-lg text-sm text-slate-700"
-              >
-                {alert.text}
-              </div>
-            ))}
+      {/* Critical Issues */}
+      <div className="space-y-2 mb-6">
+        <h4 className="text-sm font-semibold text-gray-900 mb-3">Critical Issues</h4>
+        <div className="bg-critical-bg border-l-4 border-critical rounded-lg p-3 flex items-start gap-3">
+          <AlertCircle className="h-4 w-4 text-critical flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm text-gray-900 font-medium">High AQI Alert</p>
+            <p className="text-xs text-gray-600 mt-0.5">PM2.5 levels critical for at-risk residents</p>
           </div>
         </div>
-
-        {/* Action Buttons */}
-        <div className="space-y-2">
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 font-semibold">
-            Reroute Traffic
-          </Button>
-          <Button className="w-full bg-green-600 hover:bg-green-700 text-white rounded-xl py-3 font-semibold">
-            Deploy Mobile Clinic
-          </Button>
-          <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white rounded-xl py-3 font-semibold">
-            Alert Residents
-          </Button>
+        <div className="bg-high-risk-bg border-l-4 border-high-risk rounded-lg p-3 flex items-start gap-3">
+          <Clock className="h-4 w-4 text-high-risk flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm text-gray-900 font-medium">Slow Response Times</p>
+            <p className="text-xs text-gray-600 mt-0.5">2.3 min above city average</p>
+          </div>
+        </div>
+        <div className="bg-critical-bg border-l-4 border-critical rounded-lg p-3 flex items-start gap-3">
+          <TrendingUp className="h-4 w-4 text-critical flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm text-gray-900 font-medium">Rising ER Visits</p>
+            <p className="text-xs text-gray-600 mt-0.5">+24% respiratory cases this week</p>
+          </div>
         </div>
       </div>
 
-      {/* Population at Risk Card */}
-      <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm">
-        <h4 className="text-lg font-semibold text-slate-900 mb-4">Population at Risk</h4>
-        
-        <div className="mb-4">
-          <div className="text-3xl font-bold text-slate-900 tabular-nums mb-1">
-            ~{data.population.toLocaleString()}
-          </div>
-          <div className="text-sm text-slate-600">
-            residents in sensitive groups
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          {data.breakdown.map((item: any, index: number) => (
-            <div
-              key={index}
-              className="bg-slate-50 rounded-lg p-3 flex items-center justify-between"
-            >
-              <span className="text-sm text-slate-600">{item.label}</span>
-              <span className="text-sm font-semibold text-slate-900 tabular-nums">
-                {item.value.toLocaleString()}
-              </span>
-            </div>
-          ))}
-        </div>
+      {/* Action Buttons */}
+      <div className="space-y-2">
+        <button className="w-full py-3 bg-info hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+          Reroute Traffic
+        </button>
+        <button className="w-full py-3 bg-safe hover:bg-green-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+          Deploy Mobile Clinic
+        </button>
+        <button className="w-full py-3 bg-high-risk hover:bg-orange-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+          Alert Residents
+        </button>
       </div>
     </div>
   );
