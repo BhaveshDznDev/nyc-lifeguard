@@ -1,121 +1,122 @@
-import { Ambulance, Cloud, Building2, Heart, AlertTriangle, CheckCircle } from "lucide-react";
+import { Ambulance, Cloud, Building2, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export const MetricsGrid = () => {
-  const sparklineData = [45, 52, 48, 65, 72, 68, 58, 62, 70, 75, 82, 78, 85, 88, 92, 87, 83, 79, 74, 68, 63, 58, 54, 50];
+  const sparklineData = [45, 52, 48, 65, 72, 68, 58, 62, 70, 75, 82, 78, 85, 88, 92, 87, 83, 79, 74, 68];
   const erVisitsData = [720, 780, 850, 820, 870, 890, 847];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-      {/* CARD 1: Emergency Response Time */}
-      <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 border-l-4 border-l-red-600 shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="flex items-center gap-3 mb-6">
-          <Ambulance className="h-6 w-6 text-slate-600" />
-          <p className="label-default">Emergency Response Time</p>
-        </div>
-
-        <div className="mb-6">
-          <div className="flex items-baseline gap-2">
-            <span className="text-6xl font-bold text-red-600 tabular-nums">9.2</span>
-            <span className="text-sm text-slate-600">minutes</span>
+      {/* Card 1: Emergency Response Time */}
+      <div className="bg-white rounded-2xl p-6 border-l-4 border-critical shadow-sm hover:shadow-md transition-all">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Ambulance className="h-5 w-5 text-gray-400" />
+            <span className="text-xs text-gray-600 font-medium">Emergency Response</span>
           </div>
+          <Badge className="bg-critical-bg text-critical border-0 rounded-full px-2 py-1 text-xs font-medium">
+            ↑ 1.3 min
+          </Badge>
         </div>
-
-        <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-6 flex items-start gap-2">
-          <AlertTriangle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-red-700 font-medium">
-            Each extra minute reduces survival by 10%
-          </p>
+        
+        <div className="mb-2">
+          <span className="text-4xl font-bold text-gray-900 tabular-nums">9.2</span>
         </div>
-
-        <div className="mb-4 flex items-end gap-0.5 h-12">
+        <p className="text-sm text-gray-600 mb-4">minutes average</p>
+        
+        <div className="flex items-end gap-0.5 h-12 mb-2">
           {sparklineData.map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-red-600 rounded-t-sm hover:opacity-80 transition-opacity"
+              className="flex-1 bg-critical rounded-t-sm hover:opacity-80 transition-opacity"
               style={{ height: `${(value / 100) * 100}%` }}
             />
           ))}
         </div>
-
-        <p className="text-xs text-slate-500">
-          Longest: <span className="text-slate-700 font-medium">Bronx 11.5 min</span>
-        </p>
       </div>
 
-      {/* CARD 2: Air Quality Index */}
-      <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 border-l-4 border-l-orange-600 shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="flex items-center gap-3 mb-6">
-          <Cloud className="h-6 w-6 text-slate-600" />
-          <p className="label-default">Air Quality Index</p>
-        </div>
-
-        <div className="mb-4 flex items-baseline gap-3">
-          <span className="text-6xl font-bold text-orange-600 tabular-nums">87</span>
-          <Badge className="bg-orange-100 text-orange-700 border-0 rounded-full px-3 py-1 text-xs font-semibold">
-            MODERATE
+      {/* Card 2: Air Quality Index */}
+      <div className="bg-orange-50/30 rounded-2xl p-6 border-l-4 border-high-risk shadow-sm hover:shadow-md transition-all">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Cloud className="h-5 w-5 text-gray-400" />
+            <span className="text-xs text-gray-600 font-medium">Air Quality Index</span>
+          </div>
+          <Badge className="bg-high-risk-bg text-high-risk border-0 rounded-full px-2 py-1 text-xs font-medium">
+            ↑ 3.1%
           </Badge>
         </div>
-
-        <div className="space-y-1 mb-6">
-          <div className="bg-slate-50 rounded-lg p-2 flex justify-between items-center">
-            <span className="text-sm text-slate-600">PM2.5</span>
-            <span className="text-sm font-medium text-slate-900 tabular-nums">8.7 μg/m³</span>
-          </div>
-          <div className="bg-slate-50 rounded-lg p-2 flex justify-between items-center">
-            <span className="text-sm text-slate-600">NO₂</span>
-            <span className="text-sm font-medium text-slate-900 tabular-nums">22.3 ppb</span>
-          </div>
-          <div className="bg-slate-50 rounded-lg p-2 flex justify-between items-center">
-            <span className="text-sm text-slate-600">O₃</span>
-            <span className="text-sm font-medium text-slate-900 tabular-nums">32.1 ppb</span>
-          </div>
+        
+        <div className="mb-2">
+          <span className="text-4xl font-bold text-high-risk tabular-nums">87</span>
         </div>
-
-        <p className="text-xs text-slate-600">54,000 residents affected</p>
+        <p className="text-sm text-gray-600 mb-4">Moderate</p>
+        
+        <div className="flex items-end gap-0.5 h-12 mb-2">
+          {sparklineData.map((value, i) => (
+            <div
+              key={i}
+              className="flex-1 bg-high-risk rounded-t-sm hover:opacity-80 transition-opacity"
+              style={{ height: `${((value + 10) / 100) * 100}%` }}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* CARD 3: Hospital ER Visits */}
-      <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 border-l-4 border-l-purple-600 shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="flex items-center gap-3 mb-6">
-          <Building2 className="h-6 w-6 text-slate-600" />
-          <p className="label-default">Hospital ER Visits</p>
-        </div>
-
-        <div className="mb-6">
-          <span className="text-6xl font-bold text-purple-600 tabular-nums">847</span>
-          <p className="text-sm text-slate-600 mt-1">traffic-related visits today</p>
-        </div>
-
-        <div className="space-y-2 mb-6">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-700">Respiratory</span>
-            <span className="font-medium text-slate-900 tabular-nums">412</span>
+      {/* Card 3: Hospital ER Visits */}
+      <div className="bg-purple-50/30 rounded-2xl p-6 border-l-4 border-health shadow-sm hover:shadow-md transition-all">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-gray-400" />
+            <span className="text-xs text-gray-600 font-medium">ER Visits Today</span>
           </div>
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-700">Cardiac</span>
-            <span className="font-medium text-slate-900 tabular-nums">258</span>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-700">Injuries</span>
-            <span className="font-medium text-slate-900 tabular-nums">177</span>
-          </div>
+          <Badge className="bg-health-bg text-health border-0 rounded-full px-2 py-1 text-xs font-medium">
+            ↑ 12%
+          </Badge>
         </div>
-
-        <div className="flex items-end justify-between gap-1 h-16 mb-3">
+        
+        <div className="mb-2">
+          <span className="text-4xl font-bold text-health tabular-nums">847</span>
+        </div>
+        <p className="text-sm text-gray-600 mb-4">Traffic-related</p>
+        
+        <div className="flex items-end gap-0.5 h-12 mb-2">
           {erVisitsData.map((value, i) => (
             <div
               key={i}
-              className="flex-1 bg-purple-600 rounded-t-md hover:opacity-80 transition-opacity"
+              className="flex-1 bg-health rounded-t-sm hover:opacity-80 transition-opacity"
               style={{ height: `${(value / 900) * 100}%` }}
             />
           ))}
         </div>
+      </div>
 
-        <p className="text-xs text-slate-500">
-          Peak: <span className="text-slate-700 font-medium">2-6 PM</span>
-        </p>
+      {/* Card 4: Lives Saved Today */}
+      <div className="bg-green-50/30 rounded-2xl p-6 border-l-4 border-safe shadow-sm hover:shadow-md transition-all">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Heart className="h-5 w-5 text-safe fill-safe" />
+            <span className="text-xs text-gray-600 font-medium">Lives Saved Today</span>
+          </div>
+          <Badge className="bg-safe text-white border-0 rounded-full px-2 py-1 text-xs font-medium">
+            Active
+          </Badge>
+        </div>
+        
+        <div className="mb-2">
+          <span className="text-4xl font-bold text-safe tabular-nums">12-18</span>
+        </div>
+        <p className="text-sm text-gray-600 mb-4">Potential impact</p>
+        
+        <div className="flex items-end gap-0.5 h-12 mb-2">
+          {[65, 72, 78, 85, 88, 92, 95].map((value, i) => (
+            <div
+              key={i}
+              className="flex-1 bg-safe rounded-t-sm hover:opacity-80 transition-opacity"
+              style={{ height: `${(value / 100) * 100}%` }}
+            />
+          ))}
+        </div>
       </div>
 
       {/* CARD 4: Lives Saved Today */}
