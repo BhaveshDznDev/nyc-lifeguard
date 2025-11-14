@@ -5,6 +5,7 @@ import { BoroughMap } from "@/components/BoroughMap";
 import { BoroughDetails } from "@/components/BoroughDetails";
 import { EmergencyTracking } from "@/components/EmergencyTracking";
 import { PredictiveAlerts } from "@/components/PredictiveAlerts";
+import { MobileHealthCamps } from "@/components/MobileHealthCamps";
 
 const Index = () => {
   const [selectedBorough, setSelectedBorough] = useState("Bronx");
@@ -47,6 +48,9 @@ const Index = () => {
               <PredictiveAlerts />
             </div>
           </div>
+
+          {/* Mobile Health Camps Priority Table */}
+          <MobileHealthCamps />
         </div>
       </main>
     </div>
